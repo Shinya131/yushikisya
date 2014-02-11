@@ -59,7 +59,10 @@ end
 
 def show_commit_count(file)
   print "#{@exact_mach_files.first}\n"
-  print `git shortlog -sn --no-merges #{file} | cat -n | head -n 3`
+
+  git_command = "git shortlog -sn --no-merges #{file} | cat -n | head -n 3"
+  print "#{git_command}\n"
+  print `#{git_command}`
 end
 
 check_argument
